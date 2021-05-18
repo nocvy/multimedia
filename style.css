@@ -1,0 +1,585 @@
+body {
+    margin: 0;
+	padding: 0;
+	font-family: 'YuGothic','Optima',sans-serif;
+}
+
+#wrapper{
+	width: 90%;
+	background-color:white;	
+	margin:0 auto;
+}
+
+
+/* ----- ヘッダー・メニュー ----- */
+header{
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	background-color: rgba(255, 255, 255, 0.9);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+  	left: 0;
+	z-index: 3;
+	transition: 0.5s;
+}
+header a{
+	display: inline-block;
+	font-family: 'Copperplate','Cochin',sans-serif;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	color: black;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+/* マウスオーバーで下線が伸びる */
+header a:before,
+header a:after{
+	display: block;
+	border-bottom: 2px solid black;
+	position: absolute;
+	bottom: 0;
+	content: "";
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	width: 0;
+}
+header a:before{
+	left: 50%;
+}
+header a:after{
+	right: 50%;
+}
+header a:hover::before,
+header a:hover::after{
+	width: 40%;
+}
+/* 下スクロールの時は隠す */
+.hide{
+    transform: translateY(-100%);
+}
+
+
+/* ----- ナビ（上部の形整える）----- */
+nav{
+	height: 130px;
+}
+
+
+/* ----- ページ内容全体 ----- */
+section{
+	color:#000;
+	margin: 10px;
+	margin-bottom: 50px;
+}
+
+
+/* ----- ページタイトル ----- */
+.pagetitle{
+	font-family: 'Copperplate','Cochin',sans-serif;
+	font-size: 1.25em;
+	margin-left: 10%;
+	color: white;
+	background-color: black;
+	display: inline-block;
+	margin-bottom: 1.2em;
+	padding: 0.25em 1em 0.2em 1em;
+	font-weight: normal;
+	will-change: animation;
+	animation: title 2s;
+	animation-delay: 1s;
+	animation-fill-mode:forwards; /* 終了時のスタイル継続 */
+}
+@keyframes title{
+	0%{
+		box-shadow: 0 0 0 0 #7ac5e7 inset;
+	}
+	100%{
+		box-shadow: 20em 0 0 0 #3252a8 inset;
+	}
+}
+
+/* ----- 導入 ----- */
+.intro{
+	line-height: 1.8em;
+	margin-bottom: 50px;
+}
+
+
+/* ----- 各記事 ----- */
+article{
+	color:#000;
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+}
+article p{
+	line-height: 1.4em; /*行間の高さを指定する。1行の高さが文字サイズの1.4倍となり、0.4文字分の行間が空く。*/
+	margin: 10px;
+}
+/* 基本スタイル 右寄せ */
+.style_right{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.style_right iframe{
+	float: right;
+	margin: 5% 15px 5% 10%;
+}
+/* 基本スタイル 左寄せ */
+.style_left{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+/* ----- 記事の文章ひとかたまり ----- */
+.paragraph{
+	background: white;
+	width: 35%;
+	text-align: left;
+	position: relative;
+}
+/* 小見出し */
+.paragraph h1{ 
+	display:block;
+	font-size: 25px;
+	padding: 0 10px 10px;
+	letter-spacing:0.3em; /*文字の間隔を指定する。em は、文字の高さを1とした単位。*/
+	border-bottom: solid 3px black;
+	position: relative;
+}
+/* 小見出し下線 */
+.paragraph h1:after{
+	display: block;
+	content: "";
+	width: 100%;
+	height: 3px;
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	/* transition: property(対象) duration(かかる時間)
+	timing-function(変化の仕方) delay(始まる時間) */
+	transition: box-shadow 0.8s ease-in 0.3s;
+	box-shadow: 0 0 0 0 #7ac5e7 inset;
+}
+/* マウスオーバーで小見出し下線グラデーション */
+article:hover .paragraph h1:after{
+	box-shadow: 20em 0 0 0 #3252a8 inset;
+}
+.paragraph span{
+	text-decoration: line-through;
+}
+
+
+/* ----- SNSリンクボタン(トップ、サークル概要ページ) ----- */
+.SNS{
+	display: flex;
+	margin-left: 10px;
+}
+/* ボタン土台 */
+.diamond{
+	background: black;
+	margin: 0 15px;
+	width: 35px;
+	height: 35px;
+	transform: rotate(45deg); /* ひし形 */
+	text-decoration: none;
+	transition: background 0.4s;
+}
+/* アイコン */
+.diamond i{
+	color: white;
+	width: 50px;
+	height: 50px;
+	transform: rotate(-45deg); /* 斜めから戻す */
+	text-align: center;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+}
+/* マウスオーバーで色変わる */
+.Twitter:hover{
+	background: #74c1f8;
+}
+.Instagram:hover{
+	background: #ff638a;
+}
+.Facebook:hover{
+	background: #587ed1;
+}
+.Youtube:hover{
+	background: #ee5353;
+}
+
+
+/* ----- タイムライン(スケジュールのページ) ----- */
+/* スケジュール全体 */
+.schedule{
+	list-style: none;
+	margin: 10px auto;
+	padding: 0;
+	position: relative;
+	max-width: 90%;
+}
+/* 縦のライン */
+.schedule:before{
+	background-color: black;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 40%;
+	width: 2px;
+	height: 100%;
+}
+/* 各イベント */
+.event{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	position: relative;
+}
+.schedule-img{
+	margin: 50px 50px 50px 10%;
+}
+/* ひし形アイコン */
+.icon{
+	transition: transform 0.2s ease-in;
+	width: 1em;
+	height: 1em;
+	transform: rotate(45deg); /* ひし形にする */
+	background-color: black;
+	outline: 10px solid white;
+	display: block;
+	margin: 0.5em 0.5em 0.5em -0.45em;
+	position: absolute;
+	top: 50px;
+	left: 40%;
+}
+/* 文章 */
+.copy{
+	background: white;
+	margin: 10px;
+	display: inline-block;
+	padding: 2em;
+	width: 50%;
+}
+.copy h3{
+  	font-size: 1.75em;
+}
+/* 日程サムネイル */
+.thumbnail{
+	transition: box-shadow 0.5s ease-in 0.1s;
+	color: white;
+	font-size: 0.75em;
+	background-color: black;
+	box-shadow: 0 0 0 0 #7ac5e7 inset;
+	display: inline-block;
+	margin-bottom: 1.2em;
+	padding: 0.25em 1em 0.2em 1em;
+}
+/* 各eventをマウスオーバーで変形とグラデーション */
+.event:hover .icon{ 
+	transform: rotate(-45deg);
+	background: #3252a8;
+}
+.event:hover .thumbnail{
+	box-shadow: 20em 0 0 0 #3252a8 inset;
+}
+
+
+/* ----- 所在地(スキー場のページ) ----- */
+.address{
+	font-size: 0.8em;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+.address iframe{ /* Googlemap */
+	width: 200px;
+	height: 100px;
+	margin: 10px;
+	padding: 0;
+}
+
+
+/* ----- 感想フォーム(トップページ) ----- */
+.contact{
+	display: block;
+	margin: 0 auto;
+	width: 400px;
+}
+/* サムネイル */
+.contact-thumnail{ /* thumnail基本設定はスケジュールへ */
+	font-family: 'Copperplate','Cochin',sans-serif;
+	font-size: 1em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale; /* 細字にする */
+	background-color: black;
+	box-shadow: 0 0 0 0 #7ac5e7 inset;
+	display: inline-block;
+	margin-top: 50px;
+	margin-bottom: 1.2em;
+	padding: 0.25em 1em 0.2em 1em;
+}
+.contact:hover .thumbnail{
+	box-shadow: 20em 0 0 0 #3252a8 inset;
+}
+/* 入力フォーム */
+.item{
+	position: relative;
+	margin: 40px 3%;
+	width: 400px;
+}
+.item input,textarea{
+	font-size: 15px;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 5px 0;
+	padding: 0.3em;
+	padding-left: 40px;
+	padding-bottom: 10px;
+	letter-spacing: 1px;
+	border: none;
+	border-bottom: 1px solid black;
+}
+.item textarea{
+	height: 100px;
+	resize: none;
+}
+.item i{
+	position: absolute;
+	top: 2px;
+	left: 0;
+	padding: 9px 5px;
+	color: #aaaaaa;
+}
+/* 入力中(focus) */
+.item input:focus,textarea:focus{
+	border-color: #3252a8;
+	outline: none;
+}
+.item input:focus:after,textarea:focus:after{
+	outline: none;
+}
+/* 送信ボタン */
+.submit{
+	text-align: center;
+}
+.submit input[type='submit']{
+	display: inline-block;
+	width: 75px;
+	height: 40px;
+	padding: 10px;
+	border-style: none;
+	font-size: 15px;
+	background: black;
+	color: white;
+	transition: 0.5s;
+}
+.submit input[type='submit']:hover{
+	border: 1px solid black;
+	background: white;
+	color: black;
+}
+
+
+
+/* ----- フェードイン(全ページ) ----- */
+.fadein{
+	opacity : 0;
+	transform: translateY(20px);
+	transition: all 1s;
+}
+.effect-fade {
+	opacity : 0;
+	transform : translate(0, 45px);
+	transition : all 1s;
+}
+.effect-scroll{
+	opacity : 1;
+	transform : translate(0, 0);
+}
+
+
+/* ----- 画像キャプション(全ページ) ----- */
+.img-caption{
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+	margin: 0;
+}
+.img-right{
+	float: right;
+	margin: 5% 15px 5% 10%;
+}
+.img-left{
+	float: left;
+	margin: 5% 10% 5% 15px;
+}
+.img-caption img{
+	margin: 0;
+}
+.caption-slider{ /* スライドの時はmarginリセットしないとずれる */
+	margin: 0;
+}
+.caption{
+	height: 100%;
+	font-size: 0.8em;
+	color: #fff;
+	padding-right: 100px;  /* 50px右にずらすので100pxで中央揃え */
+}
+.img-caption .mask{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;	/* マスクを非表示 */
+	background-color: rgba(0, 0, 0, 0.3);
+	-webkit-transition:	all 0.7s ease;
+	transition: all 0.7s ease;
+}
+.img-caption:hover .mask{
+	opacity: 1;	/* マスクを表示 */
+	padding-left: 50px;	/* 右にずらす */
+}
+/* スケジュールの画像キャプション(画像サイズ240px)*/
+.img-caption-schedule{
+	width: 240px;
+	height: 240px;
+	overflow: hidden;
+	position: relative;
+	top: 40px;
+	left: 5%;
+	margin: 0;
+}
+.caption-schedule{
+	font-size: 0.7em;
+	padding-right: 80px;  /* 40px右にずらすので80pxで中央揃え */
+}
+.img-caption:hover .mask-schedule{
+	opacity: 1;
+	padding-left: 40px;
+}
+
+
+/* ----- 画像スライド(オフシーズンのページ) ----- */
+.slider{
+	width: 300px;
+	height: 300px;
+	margin: 0;
+	position: relative;
+}
+.slider-img{
+	margin: 0 auto;
+	height: 100%;
+	width: 100%;
+}
+.slider-right{ /* 写真右寄せの時 */
+	margin: 5% 15px 5% 10%;
+}
+.slider-left{ /* 写真左寄せの時 */
+	margin: 5% 10% 5% 15px;
+}
+/* 前・次の画像表示する矢印ボタン */
+.slide-arrow{
+	color: lightgrey;
+	position: absolute;
+	top: 136px; /* (画像の縦 300px)-(font-size/2 14px) */
+	margin: auto;
+	font-size: 28px;
+	z-index: 1;
+}
+.prev-arrow{
+	left: -30px;
+}
+.next-arrow{
+	right: -30px;
+}
+/* インジケーター(今何番目の画像を見ているか) */
+.slide-dots{
+	position: absolute;
+	bottom: -40px;
+	list-style: none;
+	display: block;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+.slide-dots li{
+	position: relative;
+	display: inline-block;
+	height: 7px;
+	width: 7px;
+	margin: 0 10px;
+	padding: 0;
+	cursor: pointer;
+	transform: rotate(45deg);
+}
+.slide-dots li.slick-active button:before{
+	background: gray;
+}
+.slide-dots li button{ /* 数字を消す */
+	background: transparent;
+	border:0;
+	font-size: 0pt;
+}
+.slide-dots li button:before{
+	background: lightgray;
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	width: 7px;
+	height: 7px;
+}
+
+
+/* ----- 右下スクロールボタン(全ページ) ----- */
+#page_top{
+	background: black;
+	width: 35px;
+	height: 35px;
+	transform: rotate(45deg); /* ひし形 */
+	position: fixed;
+	right: 50px;
+	bottom: -50px;
+}
+#page_top i{
+	color: white;
+	width: 50px;
+	height: 50px;
+	transform: rotate(-45deg); /* 斜めから戻す */
+	text-align: center;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+}
+
+
+/* ----- フッター ----- */
+footer{
+	height: 100px;
+	width: 80%;
+	margin: 100px 10px 10px 10px;
+	margin-right: auto;
+	margin-left : auto;
+	/* 文字 */
+	color: rgb(150, 150, 150);
+	font-size: 12px;
+	line-height: 75px;
+	text-align: center;
+	/* 線 */
+	border-top: 1px solid rgb(150, 150, 150);
+}

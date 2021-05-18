@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="shift_jis">
+<title>Home</title>
+<link href="./style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="wrapper">
+
+<!--header-->
+<header>
+<h1>Takayuki Itoh's page</h1>
+</header>
+
+<!--nav-->
+<nav>
+<ul>
+<li><a href="./index.html">Home</a></li>
+<li><a href="./profile.html">profile</a></li>
+<li><a href="./class.html">class</a></li>
+<li><a href="./research.html">research</a></li>
+<li><a href="./hobby.html">hobby</a></li>
+</ul>
+</nav>
+
+<!--section-->
+<section>
+<article>
+<div align="center">
+
+<img src="./imgs/itot.jpg" width=200>
+
+<h1>大原望乃</h1>
+
+<p>
+お茶の水女子大学 理学部情報科学科 B2 </br>
+メール: g1920513@is.ocha.ac.jp  <br />
+<a href="http://itolab.is.ocha.ac.jp/~itot">
+�z�[���y�[�W�F http://itolab.is.ocha.ac.jp/~itot </a>
+</p>
+</div>
+</article>
+</section>
+
+<footer>
+<p>&copy;2014 Takayuki Itoh. All Rights Reserved.</p>
+</footer>
+
+<!--/#wrapper--></div>
+</body>
+</html>
